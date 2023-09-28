@@ -1,0 +1,310 @@
+---
+title: "Plantilla Proyecto"
+author: "Fernando Manzano"
+format: html
+editor: visual
+---
+
+```{r configuraciones}
+#| message: false
+#| echo: false
+# Esto ya debiera estar cargado en el proyecto en posit.cloud
+# devtools::install_github("business-science/tidyquant")
+# Loads tidyquant, lubridate, xts, quantmod, TTR, and PerformanceAnalytics
+library(tidyverse)
+library(tidyquant)  
+```
+
+## Descripción Activo y Contexto (Hito 1)
+
+Fecha de entrega: Jueves 28 de Septiembre 23:59.
+
+### Definición
+
+Definir y describir activo a estudiar, acompañar con datos (tributa a indicador de Contexto) y con referencias científicas realizando una investigacion relacionada a articulos ubicados en la base de datos de Web of Science, con una calificacion Q1-Q2 y referenciada varias veces (Esto se verá en el tutorial de la semana 5).
+
+El activo a evaluar será Enel Chile S.A, por su parte, tiene como objetivo " En 2040, 10 años antes de la meta que marcaban los planes anteriores, la flota de Enel será 100 % renovable ...alcanzará el Cero Neto" - [El futuro está cerca \| Enel Green Power](https://www.enelgreenpower.com/es/quienes-somos/mission-2040). Esta meta de alcanzar en 2040 es 10 años más ambiciosa que el compromiso hecho por 70 países de lograrlo en 2050 - [Llegar a cero emisiones netas de carbono para 2050, ¿es posible? \| Noticias ONU](https://news.un.org/es/story/2019/10/1464591). 
+
+Como se ha mencionado en la revista Sustainability Science desde más de 10 años, existe una crisis en sostenibilidad en la que los sectores de negocios que son incapaces de colaborar para alcanzar estas metas - Industry and academia for a transition towards sustainability: advancing sustainability science through university--business collaborations (Sustainability Science). Mientras que Enel tiene objetivos de sostenibilidad a grandes rasgos en diversos países como Italia, España, Estados Unidos, Brasil, Colombia y Chile.
+
+La realidad es que la sostenibilidad es el negocio del futuro y un activo como Enel Chile S.A se encuentra mucho más avanzado en este rubro que su competencia. Con una mision muy clara de abrir el mundo de la energía a nuevas tecnologías, abrir la gestión de la energía a las personas, abrir la posibilidad de nuevos usos de la energía, abrirse a un mayor número de alianzas.
+
+```{r ETL}
+#| echo: false
+# Alternativamente Use FANG data set
+# data("FANG") 
+end <- as_date("2022-12-31")
+# Get AAPL and AMZN Stock Prices
+# AAPL <- tq_get("AAPL", get = "stock.prices", from = "2015-09-01", to = end)
+# AMZN <- tq_get("AMZN", get = "stock.prices", from = "2000-01-01", to = end)
+ENIC <- tq_get("ENIC", get = "stock.prices", from = "2000-01-01", to = end)
+EDF <- tq_get("EDF", get = "stock.prices", from = "2000-01-01", to = end)
+E.ON <- tq_get("EOAN.DE", get = "stock.prices", from = "2000-01-01", to = end)
+CL <- rbind(ENIC,EDF,E.ON)
+```
+
+El activo ENIC tiene un valor promedio para el intervalo igual a `r round(mean(ENIC$close),digits=0)`
+
+```{r ENICline}
+#| echo: false
+ENIC %>%
+    ggplot(aes(x = date, y = close)) +
+    geom_line() +
+    labs(title = "ENIC Line Chart", y = "Closing Price", x = "") + 
+    theme_tq() +
+  geom_hline(yintercept=mean(ENIC$close), linetype="dashed", color = "red")
+```
+
+```{r ENICcandle}
+#| warning: false
+ENIC %>%
+    ggplot(aes(x = date, y = close)) +
+    geom_candlestick(aes(open = open, high = high, low = low, close = close)) +
+    labs(title = "Candlestick Chart", y = "Closing Price", x = "") +
+    theme_tq()
+```
+
+### Motivación
+
+Establecer la relevancia o potencial interés específico del activo que justifique el porque realizar la investigacion a este activo y no a otros. Argumentar haciendo referencia a datos o noticias actuales que motiven el estudio de este activo.
+
+Se habla de que la Energía renovable será el futuro de la humanidad, debido a que sin esta, se tendrían que seguir utilizando materias primas no renovables como el petróleo para el funcionamiento de la humanidad, lo que ocasiona un aumento en las emisiones de gases de invernadero que genera un aumento en el impacto del efecto invernadero.
+
+Entonces las energías renovables son fuentes de energías inagotables, limpias y que se pueden obtener de cualquier lugar del mundo, además que estas cada vez se van volviendo más baratas de obtener mientras que por el contrario, las energías fósiles se van volviendo más caras. Según los pronósticos de la AIE, Agencia Internacional de la Energía,  la participación de las renovables en el suministro eléctrico global pasará a ser el 44% en 2040, principalmente a través de las tecnologías eólica y fotovoltaica. Por lo que conocer y estudiar estas nuevas energías es clave debido a que serán los próximos suministros para el funcionamiento de un planeta más sano y eficiente.
+
+La industria de la energía abarca la generación de electricidad a partir de paneles solares, turbinas eólicas y otras tecnologías. En cuanto al mercado, podemos analizarlo cuantificando su crecimiento como variable puesto que es indicativo de los prospectos futuros del mercado.
+
+Es una industria que se ha tomado su tiempo en iniciar debido a los altos costos al momento de implementar la tecnología, con bajas ganancias, esto ha sido cierto para gran parte de las diversas energías renovables existentes, en especial la fotovoltaica y geotérmica. Durante el 2016, el aumento de la capacidad instalada de energía solar fue mayor que cualquier otra fuente. Desde 2010, los costes de nuevas tecnologías se han reducido un 70% para energía fotovoltaica y en un 25% para la energía eólica. 
+
+Según la Agencia Internacional de Energía (AIE) este mercado va en camino de acelerarse los próximos años(IEA 2021 Renewables). El informe prevé que el 95 % del crecimiento de la capacidad mundial de generación de energía proceda de las energías renovables para finales de 2026. Es por esto, que se ha observado un crecimiento constante de este sector y con los nuevos avances tecnológicos se puede estimar un aumento exponencial de esta industria.
+
+### Contexto
+
+Ingesta datos del activo y provee un análisis de estadística descriptiva simple junto con el análisis de una variable económica de contexto. Ejemplo: Si el activo es una minera, la variable puede ser el precio del metal. Acompañar este analisis con graficos, riesgos, horizonte de inversion, rentabilidad del activo, entre otros.
+
+Los siguientes datos fueron extraídos de la Bolsa de comercio de Santiago, Yahoo Finance y S&P Global Ratings:
+
+|                           |            |
+|---------------------------|------------|
+| ENEL CHILE S.A.           |            |
+| Valor                     | 54,1       |
+| Variación                 | 0,15       |
+| N° Accionistas            | 5.999      |
+| Market Cap (mil millones) | 4,347      |
+| Riesgo                    | BBB        |
+| Fecha                     | 28-09-2023 |
+
+Tabla 1: Datos Enel Chile s.a.
+
+Fuente: Elaboración propia
+
+Variables económicas de contexto importantes que puede afectar a empresas como Enel, en su rentabilidad y operación, en el sector de la energía son por ejemplo:
+
+-   Precio de la Electricidad
+
+-   Costo de los Combustibles o Recursos Energéticos
+
+-   Política Energética y Regulación
+
+-   Demanda de Energía
+
+-   Política Monetaria y Cambios en Tasas de Interés
+
+-   Tendencias en Energías Renovables
+
+<!-- -->
+
+-   Eventos Climáticos Extremos
+
+```{r context}
+#| warning: false
+#| echo: false
+start <- end - weeks(6)
+
+CL %>%
+    filter(date >= start - days(2 * 15)) %>%
+    ggplot(aes(x = date, y = close, group = symbol)) +
+    geom_candlestick(aes(open = open, high = high, low = low, close = close)) +
+    geom_ma(ma_fun = SMA, n = 15, color = "darkblue", size = 1) +
+    labs(title = "CL Candlestick Chart", 
+         subtitle = "Experimenting with Mulitple Stocks",
+         y = "Closing Price", x = "") + 
+    coord_x_date(xlim = c(start, end)) +
+    facet_wrap(~ symbol, ncol = 2, scale = "free_y") +
+    theme_tq()
+```
+
+### Análisis de Largo Plazo
+
+#### Caracterización deuda (Aplicación cap. 15)
+
+Describir el activo especificando en que realiza sus inversiones (por tipo de instrumento). Especificar sus acciones comunes, preferentes y bonos relacionados aplicando lo aprendido en el capitulo respectivo.
+
+**Inversiones de Enel Chile:**
+
+1.  **Infraestructura de Generación.**
+
+2.  **Red de Distribución y Transmisión**
+
+3.  **Adquisición de Empresas y Activos.**
+
+4.  **Inversiones en Energías Renovables**
+
+5.  **Instrumentos Financieros**
+
+**Acciones Comunes y Preferentes**
+
+El capital de la empresa se encuentra distribuido en un total de 69.166.557.220 acciones, las cuales no tienen un valor nominal específico y todas pertenecen a una única serie. Cada acción otorga un derecho de voto y no existen acciones que confieran un derecho de veto por parte del Estado.
+
+El 7 de julio de 2020, Enel SpA anunció un aumento en su participación en Enel Chile a través de dos transacciones de intercambio. Se adquirieron 1.502.106.759 acciones ordinarias y 11.457.799 American Depositary Shares (ADS), cada uno representa 50 acciones ordinarias.Enel SpA incrementó su participación en un 3%, alcanzando una propiedad total del 64,93% en el capital accionario de Enel Chile.
+
+**Bonos Relacionados**
+
+En Junio de 2018 Enel Chile S.A realizó una colocación de bonos de US \$1.000 millones, con valor nominal de un mínimo de US \$1.000 y múltiplos de US \$1.000 por arriba del mínimo. Cupón de una tasa de interés de 4,875% al año en dólares con intereses a pagar dos veces al año.
+
+#### Caracterización de emisiones históricas (Aplicación cap. 20)
+
+Describir el proceso de emision de acciones paso a paso del activo seleccionado, caracterizando el tipo de colocacion que utilizaron en contraste con el procedimiento basico realizado en el capitulo respectivo.
+
+El proceso de emisión de acciones de una empresa como Enel Chile generalmente implica la venta de nuevas acciones al público o la colocación de acciones ya existentes en el mercado.
+
+**Proceso de Emisión de Acciones de Enel Chile**
+
+**1. Evaluación de Necesidades de Capital**: 
+
+Enel Chile, como cualquier empresa, primero debe evaluar si necesita recaudar capital adicional para financiar proyectos, inversiones o para otros fines corporativos. Esto puede implicar la identificación de las cantidades de capital necesarias y los plazos para su uso.
+
+**2.Determinación del Tipo de Acciones a Emitir**:
+
+La empresa debe decidir si emitirá nuevas acciones (oferta primaria) o si venderá acciones existentes en manos de accionistas actuales (oferta secundaria). 
+
+En el caso de una oferta primaria, se crean nuevas acciones y se ponen a la venta. En una oferta secundaria, los accionistas existentes venden sus acciones al público.
+
+**3. Selección de Bancos de Inversión y Asesores Legales**: 
+
+Enel Chile generalmente trabajaría con bancos de inversión y asesores legales para llevar a cabo la emisión de acciones.
+
+**4.Preparación de Documentación Legal y Regulatoria**: 
+
+Se elaboran prospectos de oferta y otros documentos legales y regulatorios que describen los términos y condiciones de la emisión de acciones. Estos, deben ser aprobados por las autoridades regulatorias (CMF).
+
+**5. Registro y Aprobación Regulatoria**: 
+
+Enel Chile debe presentar los documentos de la oferta a las autoridades regulatorias pertinentes, como la Superintendencia de Valores y Seguros (SVS) en Chile. Estas autoridades revisarán y aprobarán la oferta si cumple con las normativas y requisitos.
+
+**6.Mercado de Capitales**:
+
+ Una vez aprobada la oferta, las acciones se ponen a la venta en el mercado de capitales. Enel Chile puede optar por listar sus acciones en la Bolsa de Santiago.
+
+**7.Oferta Pública:**
+
+En el caso de una oferta primaria, se lleva a cabo una oferta pública en la que los inversionistas interesados pueden comprar las nuevas acciones.En una secundaria, los accionistas existentes venden sus acciones a través del mercado secundario.
+
+**8. Liquidación y Asignación**: 
+
+\
+Se realiza la liquidación de la oferta y se asignan las acciones a los inversores que participaron en la compra.
+
+**Caracterización de la Colocación**
+
+La colocación de acciones de Enel Chile puede ser parte de una estrategia corporativa más amplia de Enel SpA para aumentar su participación en la subsidiaria o para recaudar capital adicional. 
+
+Esto, a menudo, involucra acuerdos directos entre Enel SpA y Enel Chile, y puede no seguir un proceso de emisión de acciones tradicional en el mercado abierto. Enel SpA puede optar por comprar directamente acciones de Enel Chile o intercambiar instrumentos financieros, como se mencionó en tu pregunta anterior.
+
+En resumen, el proceso de emisión de acciones de Enel Chile seguiría los pasos generales,pero debido a la relación con su empresa matriz, Enel SpA, la colocación de acciones podría ser parte de estrategias corporativas más complejas que no siguen el procedimiento básico de una oferta pública tradicional.
+
+![](photos/Captura%20de%20pantalla%202023-08-22%20111527.png){fig-align="center"}
+
+#### Relación con activos derivados
+
+Describe un activo derivado relacionado, mostrando datos de su evolucion. Tambien mencionar porque es importante este derivado para la activo en cuestion.
+
+Aplicar procedimiento de valoración de un derivado por inclusión en estructura de retornos (a profundizar en tutorial de la unidad de Derivados).
+
+Enel Chile siguiendo su política de gestión de riesgos, realiza fundamentalmente contrataciones de derivados de tasas de interés y tipos de cambio. El Grupo clasifica sus coberturas en: 
+
+-   **Coberturas de flujos de caja**: Aquellas que permiten cubrir los flujos de caja del subyacente cubierto. 
+
+<!-- -->
+
+-   **Coberturas de valor razonable**: Aquellas que permiten cubrir el valor razonable del subyacente cubierto. 
+
+<!-- -->
+
+-   **Derivados no cobertura**: Aquellos derivados financieros que no cumplen los requisitos establecidos por las NIIF para ser designados como instrumentos de cobertura, se registran a valor razonable con cambios en resultados (activos financieros mantenidos para negociar)
+
+### Reporte grupal
+
+Definicion de un balance de portafolio sobre los 3 activos del grupo, donde se especifique los pesos de cada activo de tal forma que maximize el retorno de la cartera.
+
+Para poder asignar el porcentaje que se le dará a los activos en el portafolio es necesario tener en consideración algunos factores, a modo de entender y desarrollar un análisis claro.
+
+Los tres activos del portafolio se encuentran definidos y con sus respectivos datos en la siguiente tabla:
+
+|                       |                                    |          |                  |
+|-----------------------|------------------------------------|----------|------------------|
+|                       | **Market cap (millones de pesos)** | **Beta** | **Ratio Sharpe** |
+| **Enel Chile**        | \$        4.070                    | 0,72     | -0.0751          |
+| **Banco de Chile**    | \$      10.269                     | 0,14     | -0.0419          |
+| **Cencosud shopping** | \$ 2.286.000                       | 0,64     | -0.0497          |
+
+Tabla 2: Datos generales de los activos\
+Fuente: elaboración propia
+
+**Análisis Activos**
+
+Primero que todo, vemos una capitalización de mercado en la que Cencosud Shopping lidera por mucho. En términos de Beta, los tres activos son relativamente seguros, el Banco de Chile es el que tiene el beta más bajo, entendible considerando las regulaciones y la manera en la que opera un banco. Por último observamos que los tres activos tienen un ratio sharpe negativo de los últimos tres meses lo que indica que su rendimiento es menor al de la rentabilidad sin riesgo.
+
+Debido a que Enel tiene el Beta más alto, el Ratio Sharpe más negativo y la menor capitalización de mercado, se le va a otorgar el menor % en la asignación.
+
+Como el Banco de Chile tiene un Beta muy bajo y similar Ratio Sharpe a Cencosud Shopping, estableceremos en ambos el mismo % en la asignación, el objetivo de esta decisión es mantener al Banco de Chile como la inversión más segura, que estabilice el riesgo del portafolio.
+
+**Asignación Portafolio**
+
+|                       |                  |
+|-----------------------|------------------|
+|                       | **% asignación** |
+| **Enel**              | **20%**          |
+| **Banco de Chile**    | **40%**          |
+| **Cencosud Shopping** | **40%**          |
+|                       | **100%**         |
+
+# **Bibliografía**
+
+-   [Gobierno Corporativo Hechos esenciales Inversionistas Enel](https://www.enel.cl/content/dam/enel-cl/inversionistas/enel-chile/gobierno-corporativo/hechos-esenciales/2018/20180607-HE-EneCh.pdf)
+
+<!-- -->
+
+-   [Estados financieros consolidados anuales Enel Chile y subsidiarias 2022](https://www.enel.cl/content/dam/enel-cl/inversionistas/enel-chile/informacion-para-el-accionista/resultados-trimestrales/estados-financieros/2022/EEFF-Enel-Chile-Dic2022.pdf)
+
+<!-- -->
+
+-   [Home \| S&P Global Ratings](https://www.spglobal.com/ratings/en/index)
+
+<!-- -->
+
+-   [Yahoo Finance](https://finance.yahoo.com)
+
+<!-- -->
+
+-   [Industry and academia for a transition towards sustainability: advancing sustainability science through university--business collaborations \| SpringerLink](https://link.springer.com/article/10.1007/s11625-011-0151-3)
+
+<!-- -->
+
+-   [SCImago](https://www.scimagojr.com)
+
+<!-- -->
+
+-   [Enel Chile Sustainability Report 2022](https://www.enel.cl/content/dam/enel-cl/en/sustainability/sustainability-reports/enel-chile/2022/SR-Enel-Chile-2022.pdf)
+
+<!-- -->
+
+-   [Estudio de Valoración de Servicios Ecosistémicos en predios de Enel](https://www.enel.cl/content/dam/enel-cl/sostenibilidad/creacion-valor-compartido/estudios-y-position-paper/estudio-ecosistemico.pdf)
+
+<!-- -->
+
+-   [ENELCHILE Precio 56,87 Variación +1,23%](https://www.bolsadesantiago.com/resumen_instrumento/ENELCHILE)
+
+<!-- -->
+
+-   [www.macroaxis.com](http://www.macroaxis.com)
