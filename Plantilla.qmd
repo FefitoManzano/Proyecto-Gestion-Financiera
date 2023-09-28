@@ -242,7 +242,7 @@ Para poder asignar el porcentaje que se le dará a los activos en el portafolio 
 Los tres activos del portafolio se encuentran definidos y con sus respectivos datos en la siguiente tabla:
 
 |                       |                                    |          |                  |
-|-----------------------|------------------------------------|----------|------------------|
+|----------------|--------------------------|---------------|---------------|
 |                       | **Market cap (millones de pesos)** | **Beta** | **Ratio Sharpe** |
 | **Enel Chile**        | \$        4.070                    | 0,72     | -0.0751          |
 | **Banco de Chile**    | \$      10.269                     | 0,14     | -0.0419          |
