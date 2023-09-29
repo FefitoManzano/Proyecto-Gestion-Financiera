@@ -242,11 +242,11 @@ Para poder asignar el porcentaje que se le dará a los activos en el portafolio 
 Los tres activos del portafolio se encuentran definidos y con sus respectivos datos en la siguiente tabla:
 
 |                       |                                    |          |                  |
-|----------------|--------------------------|---------------|---------------|
+|-----------------------|------------------------------------|----------|------------------|
 |                       | **Market cap (millones de pesos)** | **Beta** | **Ratio Sharpe** |
-| **Enel Chile**        | \$        4.070                    | 0,72     | -0.0751          |
-| **Banco de Chile**    | \$      10.269                     | 0,14     | -0.0419          |
-| **Cencosud shopping** | \$ 2.286.000                       | 0,64     | -0.0497          |
+| **Enel Chile**        |  \$        4.070                   | 0,72     | -0.0751          |
+| **Banco de Chile**    |  \$      10.269                    | 0,14     | -0.0419          |
+| **Cencosud shopping** |  \$ 2.286.000                      | 0,64     | -0.0497          |
 
 Tabla 2: Datos generales de los activos\
 Fuente: elaboración propia
@@ -259,14 +259,18 @@ Debido a que Enel tiene el Beta más alto, el Ratio Sharpe más negativo y la me
 
 Como el Banco de Chile tiene un Beta muy bajo y similar Ratio Sharpe a Cencosud Shopping, estableceremos en ambos el mismo % en la asignación, el objetivo de esta decisión es mantener al Banco de Chile como la inversión más segura, que estabilice el riesgo del portafolio.
 
+Desde la perspectiva del riesgo en tiempos como estos con guerras en Europa y la incertidumbre global, se cree que los activos más ligados a la energía sean más riesgosos debido a la fluctuación en activos como el petróleo o incluso con restricciones en torno al medio ambiente en el mundo y Chile. Sumado a esto  los bancos en periodos de estancamiento como lo está chile, suelen tener un riesgo un poco más alto en comparación con las acciones inmobiliarias que suelen no tener fluctuaciones muy altas debido a la constante alza de la tasa de ocupación como sucede en CENCOSUD SHOPPING.
+
+En el último trimestre en comparación a los mismos meses anteriores del año pasado CENCOSUD SHOPPING aumentó sus utilidades en un 99,6% gracias al incremento de la tasa de ocupación lo que significó que tuviera una rentabilidad anual de su acción \"CENCOSHOPP\" de 35% por lo que se le va a dar un peso más grande en el portafolio.
+
 **Asignación Portafolio**
 
 |                       |                  |
 |-----------------------|------------------|
 |                       | **% asignación** |
 | **Enel**              | **20%**          |
-| **Banco de Chile**    | **40%**          |
-| **Cencosud Shopping** | **40%**          |
+| **Banco de Chile**    | **30%**          |
+| **Cencosud Shopping** | **50%**          |
 |                       | **100%**         |
 
 # **Bibliografía**
