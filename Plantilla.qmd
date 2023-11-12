@@ -1,5 +1,5 @@
 ---
-title: "Plantilla Proyecto"
+title: "Hito 3 Proyecto"
 author: "Fernando Manzano"
 format: html
 editor: visual
@@ -15,11 +15,23 @@ library(tidyverse)
 library(tidyquant)  
 ```
 
-## Descripción Activo y Contexto (Hito 1)
+# **Hito 3** Gestión financiera Grupo 7: Energía
 
-Fecha de entrega: Jueves 28 de Septiembre 23:59.
+**Integrantes:**
 
-### Definición
+Juan Ayala
+
+Benjamín Ruiz Tagle
+
+Fernando Manzano
+
+**Profesor:**
+
+Sebastián Cea
+
+Fecha de entrega: Lunes 13 de Noviembre 23:59.
+
+# Definición
 
 Definir y describir activo a estudiar, acompañar con datos (tributa a indicador de Contexto) y con referencias científicas realizando una investigacion relacionada a articulos ubicados en la base de datos de Web of Science, con una calificacion Q1-Q2 y referenciada varias veces (Esto se verá en el tutorial de la semana 5).
 
@@ -37,17 +49,17 @@ end <- as_date("2022-12-31")
 # Get AAPL and AMZN Stock Prices
 # AAPL <- tq_get("AAPL", get = "stock.prices", from = "2015-09-01", to = end)
 # AMZN <- tq_get("AMZN", get = "stock.prices", from = "2000-01-01", to = end)
-ENIC <- tq_get("ENIC", get = "stock.prices", from = "2000-01-01", to = end)
+ENELCHILE.SN <- tq_get("ENIC", get = "stock.prices", from = "2000-01-01", to = end)
 EDF <- tq_get("EDF", get = "stock.prices", from = "2000-01-01", to = end)
 E.ON <- tq_get("EOAN.DE", get = "stock.prices", from = "2000-01-01", to = end)
 CL <- rbind(ENIC,EDF,E.ON)
 ```
 
-El activo ENIC tiene un valor promedio para el intervalo igual a `r round(mean(ENIC$close),digits=0)`
+El activo ENELCHILE.SN tiene un valor promedio para el intervalo igual a `r round(mean(ENIC$close),digits=0)`
 
-```{r ENICline}
+```{r ENELCHILE.SNline}
 #| echo: false
-ENIC %>%
+ENELCHILE.SN %>%
     ggplot(aes(x = date, y = close)) +
     geom_line() +
     labs(title = "ENIC Line Chart", y = "Closing Price", x = "") + 
@@ -57,14 +69,14 @@ ENIC %>%
 
 ```{r ENICcandle}
 #| warning: false
-ENIC %>%
+ENELCHILE.SN %>%
     ggplot(aes(x = date, y = close)) +
     geom_candlestick(aes(open = open, high = high, low = low, close = close)) +
     labs(title = "Candlestick Chart", y = "Closing Price", x = "") +
     theme_tq()
 ```
 
-### Motivación
+# Motivación
 
 Establecer la relevancia o potencial interés específico del activo que justifique el porque realizar la investigacion a este activo y no a otros. Argumentar haciendo referencia a datos o noticias actuales que motiven el estudio de este activo.
 
@@ -78,7 +90,7 @@ Es una industria que se ha tomado su tiempo en iniciar debido a los altos costos
 
 Según la Agencia Internacional de Energía (AIE) este mercado va en camino de acelerarse los próximos años(IEA 2021 Renewables). El informe prevé que el 95 % del crecimiento de la capacidad mundial de generación de energía proceda de las energías renovables para finales de 2026. Es por esto, que se ha observado un crecimiento constante de este sector y con los nuevos avances tecnológicos se puede estimar un aumento exponencial de esta industria.
 
-### Contexto
+# Contexto
 
 Ingesta datos del activo y provee un análisis de estadística descriptiva simple junto con el análisis de una variable económica de contexto. Ejemplo: Si el activo es una minera, la variable puede ser el precio del metal. Acompañar este analisis con graficos, riesgos, horizonte de inversion, rentabilidad del activo, entre otros.
 
@@ -100,21 +112,31 @@ Fuente: Elaboración propia
 
 Variables económicas de contexto importantes que puede afectar a empresas como Enel, en su rentabilidad y operación, en el sector de la energía son por ejemplo:
 
--   Precio de la Electricidad
+-   **Precio de la Electricidad**: El precio de la electricidad impacta directamente en los ingresos de Enel Chile, ya que la empresa opera en el sector energético. Variaciones en los precios pueden influir en la rentabilidad y competitividad de la compañía, afectando su capacidad para generar ingresos consistentes
 
--   Costo de los Combustibles o Recursos Energéticos
+-   **Costo de los Combustibles o Recursos Energéticos:** El costo de los combustibles o recursos energéticos utilizados por Enel Chile afecta sus costos operativos. Fluctuaciones en estos costos pueden incidir en la rentabilidad de la empresa, especialmente en comparación con fuentes de energía más económicas o sostenibles.
 
--   Política Energética y Regulación
+-   **Política Energética y Regulación**: Cambios en la política energética y regulaciones gubernamentales pueden tener un impacto significativo en las operaciones y proyectos de Enel Chile. Decisiones gubernamentales pueden afectar la viabilidad económica de ciertos proyectos, las tarifas reguladas y la entrada o salida de competidores en el mercado.
 
--   Demanda de Energía
+-   **Demanda de Energía:** La demanda de energía es fundamental para el éxito de Enel Chile. Una demanda creciente puede aumentar la utilización de sus instalaciones y servicios, mientras que una demanda decreciente puede resultar en subutilización de activos, afectando la eficiencia operativa y los ingresos.
 
--   Política Monetaria y Cambios en Tasas de Interés
+-   **Política Monetaria y Cambios en Tasas de Interés:** La política monetaria y las variaciones en las tasas de interés pueden afectar el costo del endeudamiento de Enel Chile y la valoración de sus inversiones. Cambios en las tasas de interés impactan los costos financieros y la atractividad de las inversiones en el sector energético.
 
--   Tendencias en Energías Renovables
+-   **Tendencias en Energías Renovables:** Las tendencias en energías renovables tienen un impacto directo en la estrategia de Enel Chile, que se ha comprometido con la transición hacia fuentes de energía sostenibles. Cambios en la adopción y preferencia por energías renovables pueden influir en la demanda de los servicios de Enel Chile y su posición competitiva en el mercado.
+
+-   **Eventos Climáticos Extremos:** Eventos climáticos extremos, como huracanes e inundaciones, constituyen riesgos significativos para Enel Chile. Pueden dañar la infraestructura energética, interrumpir la generación y distribución de energía, y generar costos adicionales. La creciente frecuencia e intensidad, asociadas al cambio climático, resaltan la necesidad de resiliencia y adaptabilidad en las operaciones de Enel Chile para mitigar impactos adversos y garantizar la sostenibilidad a largo plazo.
+
+Cualquier corte o falla similar en las instalaciones de transmisión podría interrumpir el negocio de la Compañía, lo que afectaría adversamente sus resultados operacionales y situación financiera.
+
+"El 24 de septiembre de 2011, casi diez millones de habitantes de la zona central de Chile sufrieron un"apagón" (lo que afectó a más de la mitad de población chilena), debido a una falla en la subestación Ancoa de Transelec de 220 kV, lo que produjo una interrupción del servicio en dos líneas de 500 kV del SIC y llevó a que se cayera el programa computacional de recuperación remota que usa el Centro de Despacho Económico de Carga ("CDEC") para operar la red. Ese "apagón", que se extendió por dos horas, dejó en evidencia la fragilidad del sistema de transmisión y su necesidad de ampliarse y que se introduzcan mejoras tecnológicas para así aumentar su confiabilidad." - Factores de Riesgo Enel Chile.
+
+Enel Chile está comprometida a través de su estrategia de negocio con seis Objetivos de Desarrollo sostenible (ODS).
+
+![](Proyecto-Gestion-Financiera/Categorias.png)
+
+Conexión entre las seis macro categorías de la taxonomía de riesgos, la integración son los aspectos ASG y los ODS.
 
 <!-- -->
-
--   Eventos Climáticos Extremos
 
 ```{r context}
 #| warning: false
@@ -134,7 +156,7 @@ CL %>%
     theme_tq()
 ```
 
-### Análisis de Largo Plazo
+# Análisis de Largo Plazo
 
 #### Caracterización deuda (Aplicación cap. 15)
 
@@ -205,7 +227,7 @@ En el caso de una oferta primaria, se lleva a cabo una oferta pública en la que
 \
 Se realiza la liquidación de la oferta y se asignan las acciones a los inversores que participaron en la compra.
 
-**Caracterización de la Colocación**
+# **Caracterización de la Colocación**
 
 La colocación de acciones de Enel Chile puede ser parte de una estrategia corporativa más amplia de Enel SpA para aumentar su participación en la subsidiaria o para recaudar capital adicional. 
 
@@ -215,7 +237,7 @@ En resumen, el proceso de emisión de acciones de Enel Chile seguiría los pasos
 
 ![](photos/Captura%20de%20pantalla%202023-08-22%20111527.png){fig-align="center"}
 
-#### Relación con activos derivados
+# Relación con activos derivados
 
 Describe un activo derivado relacionado, mostrando datos de su evolucion. Tambien mencionar porque es importante este derivado para la activo en cuestion.
 
@@ -233,7 +255,7 @@ Enel Chile siguiendo su política de gestión de riesgos, realiza fundamentalmen
 
 -   **Derivados no cobertura**: Aquellos derivados financieros que no cumplen los requisitos establecidos por las NIIF para ser designados como instrumentos de cobertura, se registran a valor razonable con cambios en resultados (activos financieros mantenidos para negociar)
 
-### Reporte grupal
+# Reporte grupal 1 - Asignacion de Activos
 
 Definicion de un balance de portafolio sobre los 3 activos del grupo, donde se especifique los pesos de cada activo de tal forma que maximize el retorno de la cartera.
 
@@ -244,14 +266,14 @@ Los tres activos del portafolio se encuentran definidos y con sus respectivos da
 |                       |                                    |          |                  |
 |-----------------------|------------------------------------|----------|------------------|
 |                       | **Market cap (millones de pesos)** | **Beta** | **Ratio Sharpe** |
-| **Enel Chile**        |  \$        4.070                   | 0,72     | -0.0751          |
-| **Banco de Chile**    |  \$      10.269                    | 0,14     | -0.0419          |
-| **Cencosud shopping** |  \$ 2.286.000                      | 0,64     | -0.0497          |
+| **Enel Chile**        | \$        4.070                    | 0,72     | -0.0751          |
+| **Banco de Chile**    | \$      10.269                     | 0,14     | -0.0419          |
+| **Cencosud shopping** | \$ 2.286.000                       | 0,64     | -0.0497          |
 
 Tabla 2: Datos generales de los activos\
 Fuente: elaboración propia
 
-**Análisis Activos**
+## **Análisis Activos**
 
 Primero que todo, vemos una capitalización de mercado en la que Cencosud Shopping lidera por mucho. En términos de Beta, los tres activos son relativamente seguros, el Banco de Chile es el que tiene el beta más bajo, entendible considerando las regulaciones y la manera en la que opera un banco. Por último observamos que los tres activos tienen un ratio sharpe negativo de los últimos tres meses lo que indica que su rendimiento es menor al de la rentabilidad sin riesgo.
 
@@ -261,9 +283,9 @@ Como el Banco de Chile tiene un Beta muy bajo y similar Ratio Sharpe a Cencosud 
 
 Desde la perspectiva del riesgo en tiempos como estos con guerras en Europa y la incertidumbre global, se cree que los activos más ligados a la energía sean más riesgosos debido a la fluctuación en activos como el petróleo o incluso con restricciones en torno al medio ambiente en el mundo y Chile. Sumado a esto  los bancos en periodos de estancamiento como lo está chile, suelen tener un riesgo un poco más alto en comparación con las acciones inmobiliarias que suelen no tener fluctuaciones muy altas debido a la constante alza de la tasa de ocupación como sucede en CENCOSUD SHOPPING.
 
-En el último trimestre en comparación a los mismos meses anteriores del año pasado CENCOSUD SHOPPING aumentó sus utilidades en un 99,6% gracias al incremento de la tasa de ocupación lo que significó que tuviera una rentabilidad anual de su acción \"CENCOSHOPP\" de 35% por lo que se le va a dar un peso más grande en el portafolio.
+En el último trimestre en comparación a los mismos meses anteriores del año pasado CENCOSUD SHOPPING aumentó sus utilidades en un 99,6% gracias al incremento de la tasa de ocupación lo que significó que tuviera una rentabilidad anual de su acción "CENCOSHOPP" de 35% por lo que se le va a dar un peso más grande en el portafolio.
 
-**Asignación Portafolio**
+## **Asignación Portafolio**
 
 |                       |                  |
 |-----------------------|------------------|
@@ -272,6 +294,96 @@ En el último trimestre en comparación a los mismos meses anteriores del año p
 | **Banco de Chile**    | **30%**          |
 | **Cencosud Shopping** | **50%**          |
 |                       | **100%**         |
+
+# Modelos de analisis
+
+## Modelo Binomial Jarrow-Rudd
+
+Movimiento hacia arriba del Árbol Binomial
+
+Con probabilidades fijas, todos los inputs que describen el movimiento de precios, como la volatilidad σ, la tasa de interés libre de riesgo "r" y el rendimiento "q", se reflejan en el tamaño de los movimientos hacia arriba y hacia abajo.
+
+Donde Δt es la duración de un paso en años, calculada como el tiempo de vencimiento de la opción t dividido por el número de pasos del modelo n:
+
+Los multiplicadores de movimiento hacia arriba y hacia abajo, denotados como u y d, se utilizan para generar el árbol de precios subyacentes, partiendo del precio subyacente actual S y llegando a la fecha de vencimiento de la opción. Desde cada nodo en el árbol, el precio puede subir (S · u) o bajar (S · d) hacia uno de los dos nodos en el siguiente paso.
+
+Los precios subyacentes en la fecha de vencimiento (el último paso en el árbol) se utilizan para calcular los pagos de la opción en la fecha de vencimiento, que constituyen el último paso en el árbol de precios de la opción.
+
+Luego, el resto del árbol de precios de la opción se calcula hacia atrás, llegando finalmente a su primer nodo, que es el precio actual de la opción.
+
+![](Proyecto-Gestion-Financiera/jARROW%20RUDD.png)
+
+-   **s : precio inicial del stock**
+
+-   **k : strike price**
+
+-   **t : tiempo de expiración**
+
+-   **v : volatilidad**
+
+-   **rf : tasa libre de riesgo**
+
+-   **cp : +1/-1 para call/put**
+
+-   **am : True/False for American/European**
+
+-   **n : caminos binomiales**
+
+## Modelo Black-Scholes
+
+El modelo de Black-Scholes es una fórmula matemática utilizada para calcular el precio teórico de opciones financieras europeas. Desarrollado por Fischer Black, Myron Scholes y Robert Merton en la década de 1970, el modelo tiene en cuenta factores como el precio actual de la acción, la volatilidad del activo subyacente, el tiempo hasta la expiración de la opción y la tasa libre de riesgo.
+
+El calculo se realiza de la siguiente manera:
+
+![](Proyecto-Gestion-Financiera/imagen_2023-11-12_180750219.png)
+
+El modelo de Black-Scholes podría utilizarse para evaluar opciones financieras asociadas a acciones de Enel Chile. Por ejemplo, podría ser aplicado para valorar opciones de compra o venta de acciones de la empresa, permitiendo a los inversionistas tomar decisiones informadas sobre la compra o venta de estos instrumentos financieros.
+
+**Comparación Teórica con el Modelo Binomial de Jarrow-Rudd:** Ambos modelos son utilizados para la valoración de opciones, pero difieren en su enfoque. Mientras que el modelo de Black-Scholes asume un movimiento de precios continuo y suavidad en las fluctuaciones del mercado, el modelo binomial de Jarrow-Rudd utiliza un enfoque discreto y divide el tiempo en pasos finitos. En términos prácticos, la elección entre ambos modelos puede depender de la naturaleza específica del activo subyacente y de las condiciones del mercado. El modelo de Black-Scholes es más eficiente computacionalmente, pero el modelo binomial puede ser más flexible para ciertos escenarios.
+
+## **Resultados**
+
+Para analizar ambos modelos, los parámetros obtenidos se sacan directamente en tiempo real desde Yahoo Finance usando la librería yfinance.
+
+|                                           |                         |
+|-------------------------------------------|-------------------------|
+| **Tasa de interés sin riesgo (r)**        | **0.237329**            |
+| **Sigma (Volatilidad)**                   | **0.5461213415186053**  |
+| **S0 (Precio actual)**                    | **3.009999990463257**   |
+| **K (Precio de ejercicio)**               | **2.5**                 |
+| **T (Tiempo hasta vencimiento en años)**  | **0.01984126984126984** |
+| **Precio de la opción \[Black-Scholes\]** | **0.5222007112063634**  |
+| **Precio de la opción \[Jarrow-Rudd\]**   | **0.5221770004756079**  |
+
+El precio de la opción de compra (call) calculado con el modelo de Black-Scholes es de aproximadamente 0.5222, mientras que el modelo de Jarrow-Rudd da un precio de aproximadamente 0.5222.
+
+La diferencia entre los dos precios es mínima (0.0000237107), lo que indica una cercanía sustancial entre los valores calculados por ambos modelos en este caso. Esta pequeña discrepancia puede atribuirse a las diferencias en las suposiciones y métodos de cálculo específicos de cada modelo. En general, la similitud en los resultados sugiere que ambos modelos son consistentes en la valoración de la opción en esta situación particular.
+
+Como siempre, es crucial considerar las condiciones específicas del activo subyacente, las características del mercado y las suposiciones de cada modelo al interpretar los resultados y tomar decisiones de inversión.
+
+## **Comparación modelos**
+
+Para realizar una comparación entre los dos modelos se realizaron varios cálculos usando diversos tickers y graficando la diferencia porcentual entre sus resultados.
+
+![](Proyecto-Gestion-Financiera/Diferencia%20porcentual.png)
+
+Gráfico: Diferencia porcentual entre Black-Scholes y Jarrow Rudd.
+
+Fuente: Elaboración Propia
+
+Podemos apreciar que la diferencia porcentual no supera el valor absoluto de 0.2%. Esto es un porcentaje bastante pequeño y muestra que ambos modelos, a pesar de ser muy distintos en su manera de calcular las opciones, son consistentes en sus resultados.
+
+# **Administración de Efectivo: Caso Grupal**
+
+Tricia Haltiwinger, presidenta de Braam Industries, busca mejorar el desempeño financiero de la empresa, fabricante de equipo de oficina. Aunque el crecimiento ha sido lento, se prevé un aumento en las ventas debido a la recuperación económica. Andrew Preston, tesorero, evalúa opciones para modificar la política de crédito actual de 30 días neto, considerando tres alternativas: relajar la decisión de otorgar crédito, extender el periodo a 45 días neto, o combinar ambas. Cada opción aumentaría las ventas, pero con el inconveniente de mayores tasas de incumplimiento y costos administrativos.
+
+Considerando costos variables de producción del 45% de las ventas y una tasa de interés del 6%, la empresa debe elegir la política de crédito con el mayor Valor Presente Neto (VPN) positivo. Sin embargo, se destaca que la afirmación sobre la opción 3, con tasas de incumplimiento y costos administrativos menores que la opción 2, es incorrecta. La viabilidad de la opción 3 depende de implementar mejoras en la evaluación de riesgos y la automatización del proceso.
+
+En resumen, la empresa debe realizar un análisis de costo-beneficio para determinar la opción más adecuada. La eficiencia y solvencia de Braam Industries se comparan con Enel, siendo esta última potencialmente una mejor opción de inversión si su VPN es mayor.
+
+# Bonus app - Dash app
+
+Se realizó un Dash app
 
 # **Bibliografía**
 
@@ -295,4 +407,4 @@ En el último trimestre en comparación a los mismos meses anteriores del año p
 
 -   [www.macroaxis.com](http://www.macroaxis.com)
 
--   
+-   [dash.plotly](www.dash.plotly.com)
