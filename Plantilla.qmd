@@ -31,6 +31,10 @@ Sebastián Cea
 
 Fecha de entrega: Lunes 13 de Noviembre 23:59.
 
+# Bonus app - Dash app Resumen
+
+Se realizó un Dash app resumiendo el infrome en: [DASH APP FERNANDO MANZANO](http://astralopitecus9.pythonanywhere.com)
+
 # Definición
 
 Definir y describir activo a estudiar, acompañar con datos (tributa a indicador de Contexto) y con referencias científicas realizando una investigacion relacionada a articulos ubicados en la base de datos de Web of Science, con una calificacion Q1-Q2 y referenciada varias veces (Esto se verá en el tutorial de la semana 5).
@@ -264,7 +268,7 @@ Para poder asignar el porcentaje que se le dará a los activos en el portafolio 
 Los tres activos del portafolio se encuentran definidos y con sus respectivos datos en la siguiente tabla:
 
 |                       |                                    |          |                  |
-|-----------------------|------------------------------------|----------|------------------|
+|----------------|------------------------|----------------|----------------|
 |                       | **Market cap (millones de pesos)** | **Beta** | **Ratio Sharpe** |
 | **Enel Chile**        | \$        4.070                    | 0,72     | -0.0751          |
 | **Banco de Chile**    | \$      10.269                     | 0,14     | -0.0419          |
@@ -380,10 +384,6 @@ Tricia Haltiwinger, presidenta de Braam Industries, busca mejorar el desempeño 
 Considerando costos variables de producción del 45% de las ventas y una tasa de interés del 6%, la empresa debe elegir la política de crédito con el mayor Valor Presente Neto (VPN) positivo. Sin embargo, se destaca que la afirmación sobre la opción 3, con tasas de incumplimiento y costos administrativos menores que la opción 2, es incorrecta. La viabilidad de la opción 3 depende de implementar mejoras en la evaluación de riesgos y la automatización del proceso.
 
 En resumen, la empresa debe realizar un análisis de costo-beneficio para determinar la opción más adecuada. La eficiencia y solvencia de Braam Industries se comparan con Enel, siendo esta última potencialmente una mejor opción de inversión si su VPN es mayor.
-
-# Bonus app - Dash app
-
-Se realizó un Dash app
 
 # **Bibliografía**
 
