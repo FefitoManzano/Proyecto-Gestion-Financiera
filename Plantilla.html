@@ -101,11 +101,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="descripción-activo-y-contexto-hito-1" class="level2">
-<h2 class="anchored" data-anchor-id="descripción-activo-y-contexto-hito-1">Descripción Activo y Contexto (Hito 1)</h2>
-<p><strong>Hito 3</strong><br>
-Gestión financiera<br>
-Grupo 7: Energía</p>
+<section id="hito-3-gestión-financiera-grupo-7-energía" class="level1">
+<h1><strong>Hito 3</strong> Gestión financiera Grupo 7: Energía</h1>
 <p><strong>Integrantes:</strong></p>
 <p>Juan Ayala</p>
 <p>Benjamín Ruiz Tagle</p>
@@ -113,20 +110,25 @@ Grupo 7: Energía</p>
 <p><strong>Profesor:</strong></p>
 <p>Sebastián Cea</p>
 <p>Fecha de entrega: Lunes 13 de Noviembre 23:59.</p>
-<section id="definición" class="level3">
-<h3 class="anchored" data-anchor-id="definición">Definición</h3>
+</section>
+<section id="bonus-app---dash-app-resumen" class="level1">
+<h1>Bonus app - Dash app Resumen</h1>
+<p>Se realizó un Dash app resumiendo el infrome en: <a href="http://astralopitecus9.pythonanywhere.com">DASH APP FERNANDO MANZANO</a></p>
+</section>
+<section id="definición" class="level1">
+<h1>Definición</h1>
 <p>Definir y describir activo a estudiar, acompañar con datos (tributa a indicador de Contexto) y con referencias científicas realizando una investigacion relacionada a articulos ubicados en la base de datos de Web of Science, con una calificacion Q1-Q2 y referenciada varias veces (Esto se verá en el tutorial de la semana 5).</p>
 <p>El activo a evaluar será Enel Chile S.A, por su parte, tiene como objetivo ” En 2040, 10 años antes de la meta que marcaban los planes anteriores, la flota de Enel será 100 % renovable …alcanzará el Cero Neto” - <a href="https://www.enelgreenpower.com/es/quienes-somos/mission-2040">El futuro está cerca | Enel Green Power</a>. Esta meta de alcanzar en 2040 es 10 años más ambiciosa que el compromiso hecho por 70 países de lograrlo en 2050 - <a href="https://news.un.org/es/story/2019/10/1464591">Llegar a cero emisiones netas de carbono para 2050, ¿es posible? | Noticias ONU</a>.&nbsp;</p>
 <p>Como se ha mencionado en la revista Sustainability Science desde más de 10 años, existe una crisis en sostenibilidad en la que los sectores de negocios que son incapaces de colaborar para alcanzar estas metas - Industry and academia for a transition towards sustainability: advancing sustainability science through university–business collaborations (Sustainability Science). Mientras que Enel tiene objetivos de sostenibilidad a grandes rasgos en diversos países como Italia, España, Estados Unidos, Brasil, Colombia y Chile.</p>
 <p>La realidad es que la sostenibilidad es el negocio del futuro y un activo como Enel Chile S.A se encuentra mucho más avanzado en este rubro que su competencia. Con una mision muy clara de abrir el mundo de la energía a nuevas tecnologías, abrir la gestión de la energía a las personas, abrir la posibilidad de nuevos usos de la energía, abrirse a un mayor número de alianzas.</p>
-<p>El activo ENIC tiene un valor promedio para el intervalo igual a 4</p>
+<p>El activo ENELCHILE.SN tiene un valor promedio para el intervalo igual a 58</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Plantilla_files/figure-html/ENICline-1.png" class="img-fluid" width="672"></p>
+<p><img src="Plantilla_files/figure-html/ENELCHILE.SNline-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ENIC <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ENELCHILE.SN <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> close)) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_candlestick</span>(<span class="fu">aes</span>(<span class="at">open =</span> open, <span class="at">high =</span> high, <span class="at">low =</span> low, <span class="at">close =</span> close)) <span class="sc">+</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Candlestick Chart"</span>, <span class="at">y =</span> <span class="st">"Closing Price"</span>, <span class="at">x =</span> <span class="st">""</span>) <span class="sc">+</span></span>
@@ -136,8 +138,8 @@ Grupo 7: Energía</p>
 </div>
 </div>
 </section>
-<section id="motivación" class="level3">
-<h3 class="anchored" data-anchor-id="motivación">Motivación</h3>
+<section id="motivación" class="level1">
+<h1>Motivación</h1>
 <p>Establecer la relevancia o potencial interés específico del activo que justifique el porque realizar la investigacion a este activo y no a otros. Argumentar haciendo referencia a datos o noticias actuales que motiven el estudio de este activo.</p>
 <p>Se habla de que la Energía renovable será el futuro de la humanidad, debido a que sin esta, se tendrían que seguir utilizando materias primas no renovables como el petróleo para el funcionamiento de la humanidad, lo que ocasiona un aumento en las emisiones de gases de invernadero que genera un aumento en el impacto del efecto invernadero.</p>
 <p>Entonces las energías renovables son fuentes de energías inagotables, limpias y que se pueden obtener de cualquier lugar del mundo, además que estas cada vez se van volviendo más baratas de obtener mientras que por el contrario, las energías fósiles se van volviendo más caras. Según los pronósticos de la AIE, Agencia Internacional de la Energía,&nbsp; la participación de las renovables en el suministro eléctrico global pasará a ser el 44% en 2040, principalmente a través de las tecnologías eólica y fotovoltaica. Por lo que conocer y estudiar estas nuevas energías es clave debido a que serán los próximos suministros para el funcionamiento de un planeta más sano y eficiente.</p>
@@ -145,8 +147,8 @@ Grupo 7: Energía</p>
 <p>Es una industria que se ha tomado su tiempo en iniciar debido a los altos costos al momento de implementar la tecnología, con bajas ganancias, esto ha sido cierto para gran parte de las diversas energías renovables existentes, en especial la fotovoltaica y geotérmica. Durante el 2016, el aumento de la capacidad instalada de energía solar fue mayor que cualquier otra fuente. Desde 2010, los costes de nuevas tecnologías se han reducido un 70% para energía fotovoltaica y en un 25% para la energía eólica.&nbsp;</p>
 <p>Según la Agencia Internacional de Energía (AIE) este mercado va en camino de acelerarse los próximos años(IEA 2021 Renewables). El informe prevé que el 95 % del crecimiento de la capacidad mundial de generación de energía proceda de las energías renovables para finales de 2026. Es por esto, que se ha observado un crecimiento constante de este sector y con los nuevos avances tecnológicos se puede estimar un aumento exponencial de esta industria.</p>
 </section>
-<section id="contexto" class="level3">
-<h3 class="anchored" data-anchor-id="contexto">Contexto</h3>
+<section id="contexto" class="level1">
+<h1>Contexto</h1>
 <p>Ingesta datos del activo y provee un análisis de estadística descriptiva simple junto con el análisis de una variable económica de contexto. Ejemplo: Si el activo es una minera, la variable puede ser el precio del metal. Acompañar este analisis con graficos, riesgos, horizonte de inversion, rentabilidad del activo, entre otros.</p>
 <p>Los siguientes datos fueron extraídos de la Bolsa de comercio de Santiago, Yahoo Finance y S&amp;P Global Ratings:</p>
 <table class="table">
@@ -191,6 +193,7 @@ Grupo 7: Energía</p>
 <li><p><strong>Demanda de Energía:</strong> La demanda de energía es fundamental para el éxito de Enel Chile. Una demanda creciente puede aumentar la utilización de sus instalaciones y servicios, mientras que una demanda decreciente puede resultar en subutilización de activos, afectando la eficiencia operativa y los ingresos.</p></li>
 <li><p><strong>Política Monetaria y Cambios en Tasas de Interés:</strong> La política monetaria y las variaciones en las tasas de interés pueden afectar el costo del endeudamiento de Enel Chile y la valoración de sus inversiones. Cambios en las tasas de interés impactan los costos financieros y la atractividad de las inversiones en el sector energético.</p></li>
 <li><p><strong>Tendencias en Energías Renovables:</strong> Las tendencias en energías renovables tienen un impacto directo en la estrategia de Enel Chile, que se ha comprometido con la transición hacia fuentes de energía sostenibles. Cambios en la adopción y preferencia por energías renovables pueden influir en la demanda de los servicios de Enel Chile y su posición competitiva en el mercado.</p></li>
+<li><p><strong>Eventos Climáticos Extremos:</strong> Eventos climáticos extremos, como huracanes e inundaciones, constituyen riesgos significativos para Enel Chile. Pueden dañar la infraestructura energética, interrumpir la generación y distribución de energía, y generar costos adicionales. La creciente frecuencia e intensidad, asociadas al cambio climático, resaltan la necesidad de resiliencia y adaptabilidad en las operaciones de Enel Chile para mitigar impactos adversos y garantizar la sostenibilidad a largo plazo.</p></li>
 </ul>
 <p>Cualquier corte o falla similar en las instalaciones de transmisión podría interrumpir el negocio de la Compañía, lo que afectaría adversamente sus resultados operacionales y situación financiera.</p>
 <p>“El 24 de septiembre de 2011, casi diez millones de habitantes de la zona central de Chile sufrieron un”apagón” (lo que afectó a más de la mitad de población chilena), debido a una falla en la subestación Ancoa de Transelec de 220 kV, lo que produjo una interrupción del servicio en dos líneas de 500 kV del SIC y llevó a que se cayera el programa computacional de recuperación remota que usa el Centro de Despacho Económico de Carga (“CDEC”) para operar la red. Ese “apagón”, que se extendió por dos horas, dejó en evidencia la fragilidad del sistema de transmisión y su necesidad de ampliarse y que se introduzcan mejoras tecnológicas para así aumentar su confiabilidad.” - Factores de Riesgo Enel Chile.</p>
@@ -198,17 +201,14 @@ Grupo 7: Energía</p>
 <p><img src="Proyecto-Gestion-Financiera/Categorias.png" class="img-fluid"></p>
 <p>Conexión entre las seis macro categorías de la taxonomía de riesgos, la integración son los aspectos ASG y los ODS.</p>
 <!-- -->
-<ul>
-<li>Eventos Climáticos Extremos</li>
-</ul>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="Plantilla_files/figure-html/context-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="análisis-de-largo-plazo" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-largo-plazo">Análisis de Largo Plazo</h3>
+<section id="análisis-de-largo-plazo" class="level1">
+<h1>Análisis de Largo Plazo</h1>
 <section id="caracterización-deuda-aplicación-cap.-15" class="level4">
 <h4 class="anchored" data-anchor-id="caracterización-deuda-aplicación-cap.-15">Caracterización deuda (Aplicación cap. 15)</h4>
 <p>Describir el activo especificando en que realiza sus inversiones (por tipo de instrumento). Especificar sus acciones comunes, preferentes y bonos relacionados aplicando lo aprendido en el capitulo respectivo.</p>
@@ -249,7 +249,10 @@ Grupo 7: Energía</p>
 <p><strong>8. Liquidación y Asignación</strong>:&nbsp;</p>
 <p><br>
 Se realiza la liquidación de la oferta y se asignan las acciones a los inversores que participaron en la compra.</p>
-<p><strong>Caracterización de la Colocación</strong></p>
+</section>
+</section>
+<section id="caracterización-de-la-colocación" class="level1">
+<h1><strong>Caracterización de la Colocación</strong></h1>
 <p>La colocación de acciones de Enel Chile puede ser parte de una estrategia corporativa más amplia de Enel SpA para aumentar su participación en la subsidiaria o para recaudar capital adicional.&nbsp;</p>
 <p>Esto, a menudo, involucra acuerdos directos entre Enel SpA y Enel Chile, y puede no seguir un proceso de emisión de acciones tradicional en el mercado abierto. Enel SpA puede optar por comprar directamente acciones de Enel Chile o intercambiar instrumentos financieros, como se mencionó en tu pregunta anterior.</p>
 <p>En resumen, el proceso de emisión de acciones de Enel Chile seguiría los pasos generales,pero debido a la relación con su empresa matriz, Enel SpA, la colocación de acciones podría ser parte de estrategias corporativas más complejas que no siguen el procedimiento básico de una oferta pública tradicional.</p>
@@ -259,8 +262,8 @@ Se realiza la liquidación de la oferta y se asignan las acciones a los inversor
 </figure>
 </div>
 </section>
-<section id="relación-con-activos-derivados" class="level4">
-<h4 class="anchored" data-anchor-id="relación-con-activos-derivados">Relación con activos derivados</h4>
+<section id="relación-con-activos-derivados" class="level1">
+<h1>Relación con activos derivados</h1>
 <p>Describe un activo derivado relacionado, mostrando datos de su evolucion. Tambien mencionar porque es importante este derivado para la activo en cuestion.</p>
 <p>Aplicar procedimiento de valoración de un derivado por inclusión en estructura de retornos (a profundizar en tutorial de la unidad de Derivados).</p>
 <p>Enel Chile siguiendo su política de gestión de riesgos, realiza fundamentalmente contrataciones de derivados de tasas de interés y tipos de cambio. El Grupo clasifica sus coberturas en:&nbsp;</p>
@@ -276,18 +279,17 @@ Se realiza la liquidación de la oferta y se asignan las acciones a los inversor
 <li><strong>Derivados no cobertura</strong>: Aquellos derivados financieros que no cumplen los requisitos establecidos por las NIIF para ser designados como instrumentos de cobertura, se registran a valor razonable con cambios en resultados (activos financieros mantenidos para negociar)</li>
 </ul>
 </section>
-</section>
-<section id="reporte-grupal" class="level3">
-<h3 class="anchored" data-anchor-id="reporte-grupal">Reporte grupal</h3>
+<section id="reporte-grupal-1---asignacion-de-activos" class="level1">
+<h1>Reporte grupal 1 - Asignacion de Activos</h1>
 <p>Definicion de un balance de portafolio sobre los 3 activos del grupo, donde se especifique los pesos de cada activo de tal forma que maximize el retorno de la cartera.</p>
 <p>Para poder asignar el porcentaje que se le dará a los activos en el portafolio es necesario tener en consideración algunos factores, a modo de entender y desarrollar un análisis claro.</p>
 <p>Los tres activos del portafolio se encuentran definidos y con sus respectivos datos en la siguiente tabla:</p>
 <table class="table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 30%">
-<col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 22%">
+<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 22%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -318,13 +320,16 @@ Se realiza la liquidación de la oferta y se asignan las acciones a los inversor
 </table>
 <p>Tabla 2: Datos generales de los activos<br>
 Fuente: elaboración propia</p>
-<p><strong>Análisis Activos</strong></p>
+<section id="análisis-activos" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-activos"><strong>Análisis Activos</strong></h2>
 <p>Primero que todo, vemos una capitalización de mercado en la que Cencosud Shopping lidera por mucho. En términos de Beta, los tres activos son relativamente seguros, el Banco de Chile es el que tiene el beta más bajo, entendible considerando las regulaciones y la manera en la que opera un banco. Por último observamos que los tres activos tienen un ratio sharpe negativo de los últimos tres meses lo que indica que su rendimiento es menor al de la rentabilidad sin riesgo.</p>
 <p>Debido a que Enel tiene el Beta más alto, el Ratio Sharpe más negativo y la menor capitalización de mercado, se le va a otorgar el menor % en la asignación.</p>
 <p>Como el Banco de Chile tiene un Beta muy bajo y similar Ratio Sharpe a Cencosud Shopping, estableceremos en ambos el mismo % en la asignación, el objetivo de esta decisión es mantener al Banco de Chile como la inversión más segura, que estabilice el riesgo del portafolio.</p>
 <p>Desde la perspectiva del riesgo en tiempos como estos con guerras en Europa y la incertidumbre global, se cree que los activos más ligados a la energía sean más riesgosos debido a la fluctuación en activos como el petróleo o incluso con restricciones en torno al medio ambiente en el mundo y Chile. Sumado a esto&nbsp; los bancos en periodos de estancamiento como lo está chile, suelen tener un riesgo un poco más alto en comparación con las acciones inmobiliarias que suelen no tener fluctuaciones muy altas debido a la constante alza de la tasa de ocupación como sucede en CENCOSUD SHOPPING.</p>
 <p>En el último trimestre en comparación a los mismos meses anteriores del año pasado CENCOSUD SHOPPING aumentó sus utilidades en un 99,6% gracias al incremento de la tasa de ocupación lo que significó que tuviera una rentabilidad anual de su acción “CENCOSHOPP” de 35% por lo que se le va a dar un peso más grande en el portafolio.</p>
-<p><strong>Asignación Portafolio</strong></p>
+</section>
+<section id="asignación-portafolio" class="level2">
+<h2 class="anchored" data-anchor-id="asignación-portafolio"><strong>Asignación Portafolio</strong></h2>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -349,7 +354,12 @@ Fuente: elaboración propia</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Modelo Binomial de Jarrow-Rudd</strong></p>
+</section>
+</section>
+<section id="modelos-de-analisis" class="level1">
+<h1>Modelos de analisis</h1>
+<section id="modelo-binomial-jarrow-rudd" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-binomial-jarrow-rudd">Modelo Binomial Jarrow-Rudd</h2>
 <p>Movimiento hacia arriba del Árbol Binomial</p>
 <p>Con probabilidades fijas, todos los inputs que describen el movimiento de precios, como la volatilidad σ, la tasa de interés libre de riesgo “r” y el rendimiento “q”, se reflejan en el tamaño de los movimientos hacia arriba y hacia abajo.</p>
 <p>Donde Δt es la duración de un paso en años, calculada como el tiempo de vencimiento de la opción t dividido por el número de pasos del modelo n:</p>
@@ -367,7 +377,17 @@ Fuente: elaboración propia</p>
 <li><p><strong>am : True/False for American/European</strong></p></li>
 <li><p><strong>n : caminos binomiales</strong></p></li>
 </ul>
-<p><strong>Resultados</strong></p>
+</section>
+<section id="modelo-black-scholes" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-black-scholes">Modelo Black-Scholes</h2>
+<p>El modelo de Black-Scholes es una fórmula matemática utilizada para calcular el precio teórico de opciones financieras europeas. Desarrollado por Fischer Black, Myron Scholes y Robert Merton en la década de 1970, el modelo tiene en cuenta factores como el precio actual de la acción, la volatilidad del activo subyacente, el tiempo hasta la expiración de la opción y la tasa libre de riesgo.</p>
+<p>El calculo se realiza de la siguiente manera:</p>
+<p><img src="Proyecto-Gestion-Financiera/imagen_2023-11-12_180750219.png" class="img-fluid"></p>
+<p>El modelo de Black-Scholes podría utilizarse para evaluar opciones financieras asociadas a acciones de Enel Chile. Por ejemplo, podría ser aplicado para valorar opciones de compra o venta de acciones de la empresa, permitiendo a los inversionistas tomar decisiones informadas sobre la compra o venta de estos instrumentos financieros.</p>
+<p><strong>Comparación Teórica con el Modelo Binomial de Jarrow-Rudd:</strong> Ambos modelos son utilizados para la valoración de opciones, pero difieren en su enfoque. Mientras que el modelo de Black-Scholes asume un movimiento de precios continuo y suavidad en las fluctuaciones del mercado, el modelo binomial de Jarrow-Rudd utiliza un enfoque discreto y divide el tiempo en pasos finitos. En términos prácticos, la elección entre ambos modelos puede depender de la naturaleza específica del activo subyacente y de las condiciones del mercado. El modelo de Black-Scholes es más eficiente computacionalmente, pero el modelo binomial puede ser más flexible para ciertos escenarios.</p>
+</section>
+<section id="resultados" class="level2">
+<h2 class="anchored" data-anchor-id="resultados"><strong>Resultados</strong></h2>
 <p>Para analizar ambos modelos, los parámetros obtenidos se sacan directamente en tiempo real desde Yahoo Finance usando la librería yfinance.</p>
 <table class="table">
 <tbody>
@@ -404,13 +424,21 @@ Fuente: elaboración propia</p>
 <p>El precio de la opción de compra (call) calculado con el modelo de Black-Scholes es de aproximadamente 0.5222, mientras que el modelo de Jarrow-Rudd da un precio de aproximadamente 0.5222.</p>
 <p>La diferencia entre los dos precios es mínima (0.0000237107), lo que indica una cercanía sustancial entre los valores calculados por ambos modelos en este caso. Esta pequeña discrepancia puede atribuirse a las diferencias en las suposiciones y métodos de cálculo específicos de cada modelo. En general, la similitud en los resultados sugiere que ambos modelos son consistentes en la valoración de la opción en esta situación particular.</p>
 <p>Como siempre, es crucial considerar las condiciones específicas del activo subyacente, las características del mercado y las suposiciones de cada modelo al interpretar los resultados y tomar decisiones de inversión.</p>
-<p><strong>Comparación modelos</strong></p>
+</section>
+<section id="comparación-modelos" class="level2">
+<h2 class="anchored" data-anchor-id="comparación-modelos"><strong>Comparación modelos</strong></h2>
 <p>Para realizar una comparación entre los dos modelos se realizaron varios cálculos usando diversos tickers y graficando la diferencia porcentual entre sus resultados.</p>
 <p><img src="Proyecto-Gestion-Financiera/Diferencia%20porcentual.png" class="img-fluid"></p>
 <p>Gráfico: Diferencia porcentual entre Black-Scholes y Jarrow Rudd.</p>
 <p>Fuente: Elaboración Propia</p>
 <p>Podemos apreciar que la diferencia porcentual no supera el valor absoluto de 0.2%. Esto es un porcentaje bastante pequeño y muestra que ambos modelos, a pesar de ser muy distintos en su manera de calcular las opciones, son consistentes en sus resultados.</p>
 </section>
+</section>
+<section id="administración-de-efectivo-caso-grupal" class="level1">
+<h1><strong>Administración de Efectivo: Caso Grupal</strong></h1>
+<p>Tricia Haltiwinger, presidenta de Braam Industries, busca mejorar el desempeño financiero de la empresa, fabricante de equipo de oficina. Aunque el crecimiento ha sido lento, se prevé un aumento en las ventas debido a la recuperación económica. Andrew Preston, tesorero, evalúa opciones para modificar la política de crédito actual de 30 días neto, considerando tres alternativas: relajar la decisión de otorgar crédito, extender el periodo a 45 días neto, o combinar ambas. Cada opción aumentaría las ventas, pero con el inconveniente de mayores tasas de incumplimiento y costos administrativos.</p>
+<p>Considerando costos variables de producción del 45% de las ventas y una tasa de interés del 6%, la empresa debe elegir la política de crédito con el mayor Valor Presente Neto (VPN) positivo. Sin embargo, se destaca que la afirmación sobre la opción 3, con tasas de incumplimiento y costos administrativos menores que la opción 2, es incorrecta. La viabilidad de la opción 3 depende de implementar mejoras en la evaluación de riesgos y la automatización del proceso.</p>
+<p>En resumen, la empresa debe realizar un análisis de costo-beneficio para determinar la opción más adecuada. La eficiencia y solvencia de Braam Industries se comparan con Enel, siendo esta última potencialmente una mejor opción de inversión si su VPN es mayor.</p>
 </section>
 <section id="bibliografía" class="level1">
 <h1><strong>Bibliografía</strong></h1>
@@ -425,7 +453,7 @@ Fuente: elaboración propia</p>
 <li><p><a href="https://www.enel.cl/content/dam/enel-cl/sostenibilidad/creacion-valor-compartido/estudios-y-position-paper/estudio-ecosistemico.pdf">Estudio de Valoración de Servicios Ecosistémicos en predios de Enel</a></p></li>
 <li><p><a href="https://www.bolsadesantiago.com/resumen_instrumento/ENELCHILE">ENELCHILE Precio 56,87 Variación +1,23%</a></p></li>
 <li><p><a href="http://www.macroaxis.com">www.macroaxis.com</a></p></li>
-<li></li>
+<li><p><a href="www.dash.plotly.com">dash.plotly</a></p></li>
 </ul>
 </section>
 

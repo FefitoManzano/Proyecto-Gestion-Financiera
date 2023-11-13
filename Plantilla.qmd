@@ -53,22 +53,22 @@ end <- as_date("2022-12-31")
 # Get AAPL and AMZN Stock Prices
 # AAPL <- tq_get("AAPL", get = "stock.prices", from = "2015-09-01", to = end)
 # AMZN <- tq_get("AMZN", get = "stock.prices", from = "2000-01-01", to = end)
-ENELCHILE.SN <- tq_get("ENIC", get = "stock.prices", from = "2000-01-01", to = end)
+ENELCHILE.SN <- tq_get("ENELCHILE.SN", get = "stock.prices", from = "2000-01-01", to = end)
 EDF <- tq_get("EDF", get = "stock.prices", from = "2000-01-01", to = end)
 E.ON <- tq_get("EOAN.DE", get = "stock.prices", from = "2000-01-01", to = end)
-CL <- rbind(ENIC,EDF,E.ON)
+CL <- rbind(ENELCHILE.SN,EDF,E.ON)
 ```
 
-El activo ENELCHILE.SN tiene un valor promedio para el intervalo igual a `r round(mean(ENIC$close),digits=0)`
+El activo ENELCHILE.SN tiene un valor promedio para el intervalo igual a `r round(mean(ENELCHILE.SN$close),digits=0)`
 
 ```{r ENELCHILE.SNline}
 #| echo: false
 ENELCHILE.SN %>%
     ggplot(aes(x = date, y = close)) +
     geom_line() +
-    labs(title = "ENIC Line Chart", y = "Closing Price", x = "") + 
+    labs(title = "ENELCHILE.SN Line Chart", y = "Closing Price", x = "") + 
     theme_tq() +
-  geom_hline(yintercept=mean(ENIC$close), linetype="dashed", color = "red")
+  geom_hline(yintercept=mean(ENELCHILE.SN$close), linetype="dashed", color = "red")
 ```
 
 ```{r ENICcandle}
